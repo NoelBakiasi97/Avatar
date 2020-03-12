@@ -25,7 +25,7 @@
                         @foreach ($images as $image)
                         
                             <tr>
-                                <td class="text-center"><img src="{{$image->image}}" alt=""></td>
+                                <td class="text-center"><img src="{{asset("storage/".$image->image)}}" alt=""></td>
                                 @foreach ($categories as $categorie)
                                     @if ($image->id_categories == $categorie->id)
                                         <td class="text-center">{{$categorie->name}}</td>

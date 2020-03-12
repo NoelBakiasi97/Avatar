@@ -28,7 +28,7 @@
 
                             <tr>
                                 <td class="text-center">{{$avatar->name}}</td>
-                                <td class="text-center"><img src="{{$avatar->image}}" alt=""></td>
+                                <td class="text-center"><img src="{{asset("storage/".$avatar->image)}}" alt=""></td>
                                 <td class="d-flex justify-content-center">
                                     <a href="{{route('editCategorie', $avatar->id)}}" title="Edit">
                                         <i class="text-warning fa-2x fas fa-edit"></i>
