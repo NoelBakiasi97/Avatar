@@ -48,6 +48,8 @@ Route::post('/saveCategorie', 'CategorieController@store')->name('saveCategorie'
 Route::get('/editCategorie/{id}', 'CategorieController@edit')->name('editCategorie');
 Route::post('/updateCategorie/{id}', 'CategorieController@update')->name('updateCategorie');
 
+Route::get('/showImage/{id}','CategorieController@show')->name('showImage');
+
 Route::get('/deleteCategorie/{id}', 'CategorieController@destroy')->name('deleteCategorie');
 
 

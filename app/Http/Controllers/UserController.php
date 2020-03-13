@@ -28,12 +28,20 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'name'=>'required|min:2',
+            'age'=>'required|integer|max:85',
+            'password'=>'required|min:8',
+            'email'=>'required|unique:users'
+        ]);
+
         $users= new User();
         $users->name=$request->name;
+        $users->age = $request->age;
         $users->email=$request->email;
-        $users->password=$request->pasword;
+        $users->password=$request->password;
         $users->id_avatar=$request->id_avatar;
-
+        
         $users->save();
         return redirect()->route('user');
     }
@@ -57,6 +65,13 @@ class UserController extends Controller
     
     public function update(Request $request, $id)
     {
+        $validateData = $request->validate([
+            'name'=>'required',
+            'age'=>'required|integer|max:85',
+            'password'=>'required|min:8',
+            'email'=>'required|unique:users,email,'.$id,
+        ]);
+
         $users=User::find($id);
         $users->name=$request->name;
         $users->email=$request->email;

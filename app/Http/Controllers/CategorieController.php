@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Categorie;
+use App\Image;
 
 class CategorieController extends Controller
 {
@@ -25,7 +26,10 @@ class CategorieController extends Controller
     
     public function store(Request $request)
     {
-        $categories = new Categories();
+        $validateData = $request->validate([
+            'name'=>'required',
+        ]);
+        $categories = new Categorie();
         $categories->name=$request->name;
 
         $categories->save();
@@ -33,12 +37,12 @@ class CategorieController extends Controller
     }
 
     
-    // public function show($id)
-    // {
-    //     $categories=categorie::all();
-    //     $avatars=Avatar::find($id);
-    //     return view('showAvatar', compact('categories', 'avatars'));
-    // }
+    public function show($id)
+    {
+        $images=Image::all()->where('id_categories', $id);
+        $categories=Categorie::find($id);
+        return view('showImage', compact('categories', 'images'));
+    }
 
     
     public function edit($id)
@@ -50,6 +54,9 @@ class CategorieController extends Controller
     
     public function update(Request $request, $id)
     {
+        $validateData = $request->validate([
+            'name'=>'required',
+        ]);
         $categories=Categorie::find($id);
         $categories->name=$request->name;
 

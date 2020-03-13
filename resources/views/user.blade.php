@@ -35,12 +35,12 @@
                                 <td class="text-center">{{$user->password}}</td>
                                 @foreach ($avatars as $avatar)
                                     @if ($user->id_avatar == $avatar->id) 
-                                        <td class="text-center"><img src="{{$avatar->image}}" alt=""></td>
+                                        <td class="text-center"><img class="w-25" src="{{asset("storage/".$avatar->image)}}" alt=""></td>
                                     @endif
                                 @endforeach
                                 <td class="d-flex justify-content-around">
                                     <a href="{{route('editUser', $user->id)}}" title="Edit">
-                                        <i class="text-danger fa-2x fas fa-edit"></i>
+                                        <i class="text-warning fa-2x fas fa-edit"></i>
                                     </a>
                                     <a href="{{route('deleteUser', $user->id)}}" title="Delete">
                                         <i class="text-danger fa-2x fas fa-trash"></i>

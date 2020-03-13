@@ -28,12 +28,12 @@
 
                             <tr>
                                 <td class="text-center">{{$avatar->name}}</td>
-                                <td class="text-center"><img src="{{asset("storage/".$avatar->image)}}" alt=""></td>
+                                <td class="text-center"><img class="w-25" src="{{asset("storage/".$avatar->image)}}" alt=""></td>
                                 <td class="d-flex justify-content-center">
-                                    <a href="{{route('editCategorie', $avatar->id)}}" title="Edit">
+                                    <a href="{{route('editAvatar', $avatar->id)}}" title="Edit">
                                         <i class="text-warning fa-2x fas fa-edit"></i>
                                     </a>
-                                    <a href="{{route('deleteCategorie', $avatar->id)}}" title="Delete">
+                                    <a href="{{route('deleteAvatar', $avatar->id)}}" title="Delete">
                                         <i class="text-danger fa-2x fas fa-trash"></i>
                                     </a>
                                 </td>

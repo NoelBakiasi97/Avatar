@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         {{-- <section class="form py-5 mt-5 container"> --}}
-        <form action="{{route('saveAvatar')}}" method="POST" class="contactForm " enctype="multipart/form-data">
+        <form action="{{route('saveImage')}}" method="POST" class="contactForm " enctype="multipart/form-data">
             @csrf
             <div class="form-row">
                 
@@ -16,15 +16,6 @@
                     @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    <div class="validation"></div>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <input type="text" name="id_categorie" class="form-control @error('id_categorie') is-invalid @enderror" id="id_categorie"
-                    value="@if($errors->first('id_categorie')) @else {{old('id_categorie')}} @endif"/>
-                        @error('id_categorie')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
                     <div class="validation"></div>
                 </div>
 

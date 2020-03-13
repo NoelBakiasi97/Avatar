@@ -11,6 +11,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-6">
+                    <label for="name">Name</label>
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
                  value="@if($errors->first('name')) @else {{old('name')}} @endif"/>
                         @error('name')
@@ -20,6 +21,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
+                    <label for="age">Age</label>
                     <input type="text" name="age" class="form-control @error('age') is-invalid @enderror" id="age"
                  value="@if($errors->first('age')) @else {{old('age')}} @endif"/>
                         @error('age')
@@ -29,6 +31,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
+                    <label for="email">Email</label>
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
                  value="@if($errors->first('email')) @else {{old('email')}} @endif"/>
                         @error('email')
@@ -38,6 +41,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
+                    <label for="password">Password</label>
                     <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
                  value="@if($errors->first('password')) @else {{old('password')}} @endif"/>
                         @error('password')
@@ -47,7 +51,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="id_avatar"></label>
+                    <label for="id_avatar">Avatar</label>
                     <select name="id_avatar" id="id_avatar">
                         @foreach ($avatars as $avatar)
                             <option value="{{$avatar->id}}">{{$avatar->name}}</option>

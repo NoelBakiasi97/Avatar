@@ -28,6 +28,10 @@ class ImageController extends Controller
     
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'image'=>'required',
+            'id_categories'=>'required',
+        ]);
         $storage = Storage::disk('public')->put('', $request->file('image'));
         $images = new Image();
         $images->image=$storage;
@@ -49,8 +53,13 @@ class ImageController extends Controller
     
     public function update(Request $request, $id)
     {
+        $validateData = $request->validate([
+            'image'=>'required',
+            'id_categories'=>'required',
+        ]);
+        $storage = Storage::disk('public')->put('', $request->file('image'));
         $images=Image::find($id);
-        $images->image=$request->image;
+        $images->image=$storage;
         $images->id_categories=$request->id_categories;
 
         $images->save();

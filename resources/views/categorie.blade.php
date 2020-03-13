@@ -27,8 +27,11 @@
                             <tr>
                                 <td class="text-center">{{$categorie->name}}</td>
                                 <td class="d-flex justify-content-center">
+                                    <a href="{{route('showImage', $categorie->id)}}" title="Edit">
+                                        <button class="btn btn-success">Show</button>
+                                    </a>
                                     <a href="{{route('editCategorie', $categorie->id)}}" title="Edit">
-                                        <i class="text-danger fa-2x fas fa-edit"></i>
+                                        <i class="text-warning fa-2x mx-4 fas fa-edit"></i>
                                     </a>
                                     <a href="{{route('deleteCategorie', $categorie->id)}}" title="Delete">
                                         <i class="text-danger fa-2x fas fa-trash"></i>
